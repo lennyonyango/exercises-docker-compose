@@ -1,0 +1,9 @@
+services:
+  web-server-alpine:
+    image: devopsdockeruh/simple-web-service:alpine
+    ports: 
+      - 8080:8080
+    volumes:
+      - ./log.txt:/usr/src/app/text.log
+    container_name: web-server
+    command: server
