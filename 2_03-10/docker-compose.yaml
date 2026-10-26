@@ -1,0 +1,11 @@
+services:
+  frontend:
+    build: ../example-app/frontend
+    ports: 
+      - "5001:5001"
+  backend:
+    build: ../example-app/backend
+    ports: 
+      - "8080:8080"
+    environment:
+      - REQUEST_ORIGIN=http://localhost:5001
