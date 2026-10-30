@@ -28,7 +28,4 @@ services:
       POSTGRES_PASSWORD: example
     container_name: db_backend
     volumes:
-      - database:/var/lib/postgresql 
-
-volumes:
-  database:
+      - ./database:/var/lib/postgresql
