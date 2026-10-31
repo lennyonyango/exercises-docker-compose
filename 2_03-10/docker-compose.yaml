@@ -1,27 +1,23 @@
 services:
   frontend:
     image: onyangochanda/compose-frontend
-    ports: 
-      - "5001:5001"
   backend:
     image: onyangochanda/compose-backend
-    ports: 
-      - "8080:8080"
     environment:
       - REQUEST_ORIGIN=http://localhost:8000
       - REDIS_HOST=redis
-      - POSTGRES_HOST=postgres
+      - POSTGRES_HOST=db
       - POSTGRES_USER=postgres
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=example
 
     depends_on:
-      - postgres
+      - db
 
   redis:
     image: redis:8-alpine 
 
-  postgres:
+  db:
     image: postgres:18-alpine
     restart: unless-stopped
     environment: 
